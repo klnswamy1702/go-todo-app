@@ -1,7 +1,8 @@
 package services
 
 import (
-	"context"
+	
+	
 	"testing"
 
 	"github.com/klnswamy1702/go-todo-app/models"
@@ -13,7 +14,6 @@ import (
 func TestCreateTodo(t *testing.T) {
 	// Create a new mock instance of the test
 	mt := mtest.New(t, mtest.NewOptions().ClientType(mtest.Mock))
-	defer mt.Close() // Close the mock test instance after use
 
 	mt.Run("successfully inserts a todo", func(mt *mtest.T) {
 		mt.AddMockResponses(mtest.CreateSuccessResponse())
@@ -34,7 +34,6 @@ func TestCreateTodo(t *testing.T) {
 
 func TestGetTodos(t *testing.T) {
 	mt := mtest.New(t, mtest.NewOptions().ClientType(mtest.Mock))
-	defer mt.Close()
 
 	mt.Run("successfully retrieves todos", func(mt *mtest.T) {
 		firstTodo := models.Todo{Title: "First Todo", Description: "First Description", Completed: false}
@@ -67,7 +66,6 @@ func TestGetTodos(t *testing.T) {
 
 func TestGetTodoByID(t *testing.T) {
 	mt := mtest.New(t, mtest.NewOptions().ClientType(mtest.Mock))
-	defer mt.Close()
 
 	mt.Run("successfully retrieves a todo by ID", func(mt *mtest.T) {
 		todoID := primitive.NewObjectID()
@@ -95,7 +93,6 @@ func TestGetTodoByID(t *testing.T) {
 
 func TestUpdateTodo(t *testing.T) {
 	mt := mtest.New(t, mtest.NewOptions().ClientType(mtest.Mock))
-	defer mt.Close()
 
 	mt.Run("successfully updates a todo", func(mt *mtest.T) {
 		mt.AddMockResponses(mtest.CreateSuccessResponse())
@@ -117,7 +114,6 @@ func TestUpdateTodo(t *testing.T) {
 
 func TestDeleteTodo(t *testing.T) {
 	mt := mtest.New(t, mtest.NewOptions().ClientType(mtest.Mock))
-	defer mt.Close()
 
 	mt.Run("successfully deletes a todo", func(mt *mtest.T) {
 		mt.AddMockResponses(mtest.CreateSuccessResponse())
