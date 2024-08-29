@@ -12,7 +12,6 @@ import (
 )
 
 func TestCreateTodo(t *testing.T) {
-	// Create a new mock instance of the test
 	mt := mtest.New(t, mtest.NewOptions().ClientType(mtest.Mock))
 
 	mt.Run("successfully inserts a todo", func(mt *mtest.T) {
